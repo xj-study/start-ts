@@ -154,6 +154,7 @@ arr3.push({})
 
 typescript 竟然存在只支持 number 和 string 类型的类型，这是什么玩意？
 
+
 [返回](/README.md)
 
 
