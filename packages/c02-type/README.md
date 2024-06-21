@@ -17,9 +17,9 @@ typescript 作为 javascript 的超集，他给 javascript 添加了众多语言
 
 许许多多写 javascript 自由野惯了的同学，估计会不太喜欢这个特性。
 
-但架不住 typescript 应用广泛，大部分开源项目使用他，部分公司项目也在使用他。
+但架不住 typescript 应用广泛，大部分开源项目使用他，很多公司也在使用他。
 
-在这种背景下，那我们就很有必要，拿下他了。
+在这种背景下，那我们就很有必要拿下他了。
 
 而类型注解及类型检查特性非常重要，
 
@@ -49,6 +49,7 @@ console.log(str1)
 let str1 = 'type string 1'   // 自动推断
 
 // Type 'number' is not assignable to type 'string'.
+// Error
 str1 = 10
 
 ```
@@ -114,7 +115,9 @@ arr.push('a string')
 
 ```ts
 let arr2 = [1]
+// ok
 arr2.push(100)
+// error
 arr2.push('a string')
 ```
 
@@ -140,9 +143,13 @@ arr3.push('another string')
 
 ```ts
 let arr3 = [1, 'a string']
+// ok
 arr3.push(100)
+// ok
 arr3.push('another string')
+// error
 arr3.push(true)
+// error
 arr3.push({})
 ```
 

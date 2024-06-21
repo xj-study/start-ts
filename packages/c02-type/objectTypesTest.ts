@@ -55,3 +55,26 @@ stu.sex = 0
 function showStudent(student: Student) {
   console.log(student.name, student.age)
 }
+
+let list: NS[] = []
+// ok
+list.push(100)
+// ok
+list.push('a string')
+// error
+// list.push(false)
+
+let list2: (number | string)[] = []
+
+let stu2: [string, number, number] = ['student b', 20, 1]
+// ok
+stu2[0] = 'name'
+// error
+stu2[0] = 22
+
+// ok
+tup.push(200)
+tup.push('other string')
+
+// error
+tup.push(false)

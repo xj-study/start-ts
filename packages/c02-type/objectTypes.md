@@ -19,7 +19,7 @@ obj1.hasOwnProperty('x')
 obj1.constructor
 ```
 
-而定义一个对象的的类型是很简单的，如下所示：
+而定义一个对象的类型是很简单的，如下所示：
 
 ```ts
 let obj2 = { x: 0 }
@@ -32,6 +32,8 @@ obj3.x = 100
 ```
 
 上述方式都可以经过 ts 编译。
+
+通过定义对象的属性及属性类型注解，我们就可以轻松的驾驭各种 api 了。
 
 #### 尝试一下
 
@@ -86,5 +88,70 @@ function display2(user: User) {
 有没有一种清爽的感觉！
 
 当然，除了 type 语法，针对上面的情况，我们还可以用类来组织代码。
+
+#### 彩蛋
+
+不知道出于何种理由，ts 引入了元组类型。
+
+元组也是数组，拥有我们知道的数组所有方法。
+
+就如前面提到的数组类型，如下示例：
+
+```ts
+type NS = number | string
+let list: NS[] = []
+// ok
+list.push(100)
+// ok
+list.push('a string')
+// error
+list.push(false)
+```
+
+当我们需要一个只包含 string 及 number 的数组时，我们可以如上述代码所示。
+
+当然 list 的声明还可以这么书写：
+
+```ts
+let list: (number | string)[] = []
+```
+
+两种用法一个意思。
+
+若是我们想定义数组对应项的数据类型时，该怎么处理呢？
+
+比如，我们若想第一个项是 string，第二及第三项是 number，然后通过这种方式来存储一个用户的信息：
+
+```ts
+class Student {
+  name: string
+  age: number
+  sex: number
+}
+let stu = new Student()
+stu.name = 'student a'
+stu.age = 18
+stu.sex = 0
+```
+
+就如上述代码所示的 stu 对象。
+
+此时，就可以使用元组了！
+
+他是这么使用的：
+
+```ts
+let stu2: [string, number, number] = ['student b', 20, 1]
+// ok
+stu2[0] = 'name'
+// error
+stu2[0] = 22
+
+```
+
+是不是跟数组一样。
+
+比较优秀的是，ts 可以让我们做到给对应索引项指定类型！
+
 
 [返回](/README.md)
